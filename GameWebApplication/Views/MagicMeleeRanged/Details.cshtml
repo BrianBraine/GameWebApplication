@@ -1,0 +1,54 @@
+﻿@model GameWebApplication.Models.MagicMeleeRanged
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>MagicMeleeRanged</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Win)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Win)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Loss)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Loss)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Tie)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Tie)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.UserChoice)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.UserChoice)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ComputerChoice)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ComputerChoice)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.TimeToChoice)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TimeToChoice)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

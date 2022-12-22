@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using GameWebApplication.Models;
 
 namespace GameWebApplication.Data
 {
@@ -9,5 +10,6 @@ namespace GameWebApplication.Data
             : base(options)
         {
         }
+        public DbSet<GameWebApplication.Models.MagicMeleeRanged> MagicMeleeRanged { get; set; }
     }
 }

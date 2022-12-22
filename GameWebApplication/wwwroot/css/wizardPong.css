@@ -1,2 +1,87 @@
 ﻿body {
+    margin: 0px;
+    max-height: 100%;
+}
+
+#arena {
+    background-image: url("images/arena.PNG");
+    background-size: 100% 100%;
+    margin: 0px;
+    height: 85vh;
+    width: 100vw;
+    overflow: hidden;
+}
+
+.scoreboard {
+    position: absolute;
+    z-index: 1000;
+    left: 50%;
+    top: 5%;
+    transform: translate(-50%, 0%);
+    color: black;
+}
+
+    .scoreboard#playerScore {
+        height: 50px;
+        width: 50px;
+        color: black;
+        position: fixed;
+        left: 30vw;
+        margin-top: 30px;
+    }
+
+    .scoreboard#opponentScore {
+        height: 50px;
+        width: 50px;
+        color: black;
+        position: fixed;
+        left: 70vw;
+        margin-top: 30px;
+    }
+
+
+h1 {
+    font-family: 'PressStart2P', 'Georgia', serif;
+}
+
+.sprite {
+    background-image: url("images/betterSprites.png");
+}
+
+#player {
+    top: calc(7.5vh + 55px);
+    left: calc(5vw);
+    position: absolute;
+    background-position: -25px -110px;
+    height: 65px;
+    width: 70px;
+}
+
+#opponent {
+    top: calc(85vh - 300px);
+    right: calc(5vw);
+    position: absolute;
+    background-position: 0px -25px;
+    width: 70px;
+    height: 65px;
+}
+
+#ball {
+    position: absolute;
+    left: 50%;
+    top: 20%;
+    background-position: -122px -104px;
+    height: 16px;
+    width: 18px;
+}
+
+.message {
+    position: absolute;
+    /* color: #48426d; */
+    height: 10vh;
+    width: 30vw;
+    color: black;
+    left: 38vw;
+    top: 10%;
+    margin: 30px auto auto auto;
 }

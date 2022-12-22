@@ -1,0 +1,66 @@
+﻿@model IEnumerable<GameWebApplication.Models.MagicMeleeRanged>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Magic, Melee, Ranged!</h1>
+<p>Welcome to Magic, Melee, Ranged! This is a simple game, and the rules are exactly like rock, paper, scissors.</p>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Win)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Loss)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tie)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserChoice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ComputerChoice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TimeToChoice)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Win)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Loss)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tie)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserChoice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ComputerChoice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TimeToChoice)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
