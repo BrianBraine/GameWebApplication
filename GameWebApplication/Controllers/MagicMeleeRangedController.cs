@@ -54,7 +54,7 @@ namespace GameWebApplication.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Win,Loss,Tie,UserChoice,ComputerChoice,TimeToChoice")] MagicMeleeRanged magicMeleeRanged)
+        public async Task<IActionResult> Create([Bind("Id,UserId,Win,Loss,Tie,UserChoice,ComputerChoice,TimeToChoice")] MagicMeleeRanged magicMeleeRanged)
         {
             if (ModelState.IsValid)
             {
@@ -86,7 +86,7 @@ namespace GameWebApplication.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Win,Loss,Tie,UserChoice,ComputerChoice,TimeToChoice")] MagicMeleeRanged magicMeleeRanged)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,UserId,Win,Loss,Tie,UserChoice,ComputerChoice,TimeToChoice")] MagicMeleeRanged magicMeleeRanged)
         {
             if (id != magicMeleeRanged.Id)
             {
