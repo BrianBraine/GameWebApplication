@@ -8,22 +8,47 @@
 </head>
 <h1>Magic Melee Ranged!</h1>
 
-<h4>Play</h4>
 <hr />
 
 <div class="row">
     <div class="col-md-4">
-        <h2 class="align-middle">Magic</h2>
-        <img src="~/images/gandalf.jpg" class="img-fluid. max-width: 100%" />
+        <input type="radio"
+               name="userChoice"
+               id="magic"
+               value="magic"
+               class="userOption" />
+        <label for="magic">
+            <img src="~/images/gandalf.jpg" />
+        </label>
     </div>
     <div class="col-md-4">
-        <h2 class="align-middle">Melee</h2>
-        <img src="~/images/gimli.jpg" class="img-fluid. max-width: 100%" />
+        <input type="radio"
+               name="userChoice"
+               id="melee"
+               value="melee"
+               class="userOption" />
+        <label for="melee">
+            <img src="~/images/gimli.jpg" />
+        </label>
     </div>
     <div class="col-md-4">
-        <h2 class="align-middle">Ranged</h2>
-        <img src="~/images/legolas.jpg" class="img-fluid. max-width: 100%" />
-    </div>
+        <input type="radio"
+               name="userChoice"
+               id="ranged"
+               value="ranged"
+               class="userOption" />
+        <label for="ranged">
+            <img src="~/images/legolas.jpg" />
+        </label>
+    </div>  
+</div>
+
+<button type="button" onclick="playTheGame()">
+    Submit
+</button>
+
+<div id="currentUserChoice">
+
 </div>
 
 
@@ -64,8 +89,9 @@
                 <input asp-for="TimeToChoice" class="form-control" />
                 <span asp-validation-for="TimeToChoice" class="text-danger"></span>
             </div>
+
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Submit" class="btn btn-primary" />
             </div>
         </form>
     </div>
@@ -78,4 +104,5 @@
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
     <script type="text/javascript" src="~/js/magic-melee-ranged.js"></script>
+
 }

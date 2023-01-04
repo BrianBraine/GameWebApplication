@@ -5,3 +5,24 @@ img {
     max-width: 100%;
     height: auto;
 }
+/*.input-hidden {
+    position: absolute;
+    left: -9999px;
+}*/
+
+input[type=radio]:checked + label > img {
+    border: 1px solid #fff;
+    box-shadow: 0 0 3px 3px blue;
+}
+
+#magic{
+
+}
+
+#melee{
+
+}
+
+#ranged{
+
+}
