@@ -6,103 +6,65 @@
 <head>
     <link rel="stylesheet" href="~/css/magicMeleeRanged.css" />
 </head>
+
 <h1>Magic Melee Ranged!</h1>
 
-<hr />
-
 <div class="row">
-    <div class="col-md-4">
-        <input type="radio"
-               name="userChoice"
-               id="magic"
-               value="magic"
-               class="userOption" />
-        <label for="magic">
-            <img src="~/images/gandalf.jpg" />
-        </label>
-    </div>
-    <div class="col-md-4">
-        <input type="radio"
-               name="userChoice"
-               id="melee"
-               value="melee"
-               class="userOption" />
-        <label for="melee">
-            <img src="~/images/gimli.jpg" />
-        </label>
-    </div>
-    <div class="col-md-4">
-        <input type="radio"
-               name="userChoice"
-               id="ranged"
-               value="ranged"
-               class="userOption" />
-        <label for="ranged">
-            <img src="~/images/legolas.jpg" />
-        </label>
-    </div>  
-</div>
-
-<button type="button" onclick="playTheGame()">
-    Submit
-</button>
-
-<div id="currentUserChoice">
-
-</div>
-
-
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Win" /> Win
-                </label>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Loss" /> @Html.DisplayNameFor(model => model.Loss)
-                </label>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Tie" /> @Html.DisplayNameFor(model => model.Tie)
-                </label>
-            </div>
-
-
-
-            <div class="form-group">
-                <label asp-for="UserChoice" class="control-label"></label>
-                <input asp-for="UserChoice" class="form-control" />
-                <span asp-validation-for="UserChoice" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ComputerChoice" class="control-label"></label>
-                <input asp-for="ComputerChoice" class="form-control" />
-                <span asp-validation-for="ComputerChoice" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="TimeToChoice" class="control-label"></label>
-                <input asp-for="TimeToChoice" class="form-control" />
-                <span asp-validation-for="TimeToChoice" class="text-danger"></span>
-            </div>
-
-            <div class="form-group">
-                <input type="submit" value="Submit" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
+    <form id="optionSelection "asp-action="Create">
+        <div class="col-md-4">
+            <input type="radio"
+                   name="userChoice"
+                   id="magic"
+                   value="magic"
+                   class="userOption" />
+            <label for="magic">
+                <img src="~/images/gandalf.jpg" />
+            </label>
+        </div>
+        <div class="col-md-4">
+            <input type="radio"
+                   name="userChoice"
+                   id="melee"
+                   value="melee"
+                   class="userOption" />
+            <label for="melee">
+                <img src="~/images/gimli.jpg" />
+            </label>
+        </div>
+        <div class="col-md-4">
+            <input type="radio"
+                   name="userChoice"
+                   id="ranged"
+                   value="ranged"
+                   class="userOption" />
+            <label for="ranged">
+                <img src="~/images/legolas.jpg" />
+            </label>
+        </div>
+        <!--User choice-->
+        <span id="userChoice">User choice: </span>
+        <!--Computer choice-->
+        <!--Time to choice-->
+        <div class="form-group">
+            <button type="submit" value="Submit" class="btn btn-primary"
+                    onclick="">
+                Submit
+            </button>
+        </div>
+    </form>
 </div>
 
 <div>
     <a asp-action="Index">Back to Magic Melee Ranged Home</a>
 </div>
 
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-    <script type="text/javascript" src="~/js/magic-melee-ranged.js"></script>
-
+@section Scripts {    
+    <script>
+        $(function () {
+            playTheGame();
+        });
+        $('#optionSelection input').on('change', function () {
+            alert($('input[name=userChoice]:checked', '#myForm').val());
+        });
+    </script>
 }
