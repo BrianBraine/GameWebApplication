@@ -26,3 +26,11 @@ input[type=radio]:checked + label > img {
 #ranged{
 
 }
+
+h1 {
+    margin: auto;
+    width: 50%;
+    border: 5px dotted green;
+    text-align: center;
+    padding: 5px;
+}

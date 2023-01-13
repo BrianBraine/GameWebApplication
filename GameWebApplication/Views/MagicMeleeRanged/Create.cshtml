@@ -7,52 +7,85 @@
     <link rel="stylesheet" href="~/css/magicMeleeRanged.css" />
 </head>
 
-<h1>Magic Melee Ranged!</h1>
+<h1>Magic, Melee, Ranged!</h1>
 
+<!--This row div houses all of the radio buttons for the game-->
 <div class="row">
-    <form id="optionSelection "asp-action="Create">
-        <div class="col-md-4">
-            <input type="radio"
-                   name="userChoice"
-                   id="magic"
-                   value="magic"
-                   class="userOption" />
-            <label for="magic">
-                <img src="~/images/gandalf.jpg" />
-            </label>
-        </div>
-        <div class="col-md-4">
-            <input type="radio"
-                   name="userChoice"
-                   id="melee"
-                   value="melee"
-                   class="userOption" />
-            <label for="melee">
-                <img src="~/images/gimli.jpg" />
-            </label>
-        </div>
-        <div class="col-md-4">
-            <input type="radio"
-                   name="userChoice"
-                   id="ranged"
-                   value="ranged"
-                   class="userOption" />
-            <label for="ranged">
-                <img src="~/images/legolas.jpg" />
-            </label>
-        </div>
-        <!--User choice-->
-        <span id="userChoice">User choice: </span>
-        <!--Computer choice-->
-        <!--Time to choice-->
+    <form asp-action="Create">
         <div class="form-group">
-            <button type="submit" value="Submit" class="btn btn-primary"
-                    onclick="">
-                Submit
-            </button>
+            <div class="row">
+                <div class="col-md-4 form-check">
+                    <input type="radio"
+                           class="form-check-input"
+                           name="userOption"
+                           id="magic"
+                           value="magic"/>
+                    <label for="magic">
+                        Magic
+                        <img src="~/images/gandalf.jpg" />
+                    </label>
+                </div>
+                <div class="col-md-4 form-check">
+                    <input type="radio"
+                           class="form-check-input"
+                           name="userOption"
+                           id="melee"
+                           value="melee" />
+                    <label for="melee">
+                        Melee
+                        <img src="~/images/gimli.jpg" />
+                    </label>
+                </div>
+                <div class="col-md-4 form-check">
+                    <input type="radio"
+                           class="form-check-input"
+                           name="userOption"
+                           id="ranged"
+                           value="ranged" />
+                    <label for="ranged">
+                        Ranged
+                        <img src="~/images/legolas.jpg" />
+                    </label>
+                </div>
+            </div>            
+        </div>
+        <!--TEMP FOR USERID-->
+        <div class="form-group">
+            <label asp-for="UserId" class="control-label">Enter your initials:</label>
+            <input asp-for="UserId" class="form-control" />
+            <span asp-validation-for="UserId" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label for="userChoice" class="control-label">User choice:</label>
+            <input id="userChoice" asp-for="UserChoice" class="form-control" />
+            <span asp-validation-for="UserChoice" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label for="computerChoice" class="control-label">Opponent choice:</label>
+            <input id="computerChoice" asp-for="ComputerChoice" class="form-control" />
+            <span asp-validation-for="UserChoice" class="text-danger"></span>
+        </div>
+        <!--Submit button-->
+        <div class="form-group">
+            <input type="submit" value="Create" class="btn btn-primary" />
         </div>
     </form>
 </div>
+
+
+
+<!--New row for the user choice and computer choice-->
+<div class="row">
+    <div class="choices">
+        <div class="md-col-6">
+            Player
+        </div>
+        <div class="md-col-6">
+            Opponent
+        </div>
+    </div>
+</div>
+
 
 <div>
     <a asp-action="Index">Back to Magic Melee Ranged Home</a>
@@ -60,11 +93,15 @@
 
 @section Scripts {    
     <script>
-        $(function () {
-            playTheGame();
+        $(document).ready(function(){
+            $("input[type='radio']").click(function(){
+                var radioValue = $("input[name='userOption']:checked").val();
+                if(radioValue){
+                    $("#userChoice").val(radioValue);
+                }
+            });
         });
-        $('#optionSelection input').on('change', function () {
-            alert($('input[name=userChoice]:checked', '#myForm').val());
-        });
+        
+        
     </script>
 }

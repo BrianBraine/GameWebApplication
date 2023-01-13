@@ -1,6 +1,4 @@
-﻿
-
-function playTheGame(playerChoice) {
+﻿function playTheGame(playerChoice) {
 
     
 
