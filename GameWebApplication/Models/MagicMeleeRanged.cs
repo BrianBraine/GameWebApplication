@@ -6,7 +6,7 @@ namespace GameWebApplication.Models
     {
         [Key]
         public int Id { get; set; }
-        public int UserId { get; set; }
+        public string UserId { get; set; }
         public bool Win { get; set; }
         public bool Loss { get; set; }
         public bool Tie { get; set; }
