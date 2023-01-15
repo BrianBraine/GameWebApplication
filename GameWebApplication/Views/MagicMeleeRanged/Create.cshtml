@@ -65,6 +65,11 @@
             <input id="computerChoice" asp-for="ComputerChoice" class="form-control" />
             <span asp-validation-for="UserChoice" class="text-danger"></span>
         </div>
+        <div class="form-group">
+            <label for="result" class="control-label">Result:</label>
+            <input id="result" class="form-control" /> <!--Add asp-for action back in and validation-->
+            <span class="text-danger"></span>
+        </div>
         <!--Submit button-->
         <div class="form-group">
             <input type="submit" value="Create" class="btn btn-primary" />
@@ -94,13 +99,21 @@
 @section Scripts {    
     <script>
         $(document).ready(function(){
-            $("input[type='radio']").click(function(){
-                var radioValue = $("input[name='userOption']:checked").val();
-                if(radioValue){
-                    $("#userChoice").val(radioValue);
-                }
-            });
+            
+            setUserSelection();
+
+            const opponentChoice = getOpponentChoice();
+            $("#computerChoice").val(opponentChoice);
+
+            let userChoice = $("#userChoice");
+
+            let getResult = gameResult(userChoice, opponentChoice);
+            $("#result").val(getResult);
+            
         });
+        
+        
+
         
         
     </script>
